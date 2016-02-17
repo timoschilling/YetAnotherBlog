@@ -1,5 +1,4 @@
 %h1 Posts
 %p
-  Post count: #{@post_count}
-- @posts.each do |post|
-  = render partial: "preview", locals: { post: post }
+  Post count: #{count}
+= concept("post/cell/show", collection: model, method: :preview)

@@ -3,9 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  around_filter do
+  around_action :cells_time
+
+  def cells_time
     $cells_time = 0
     yield
-    puts puts "#{self.class}##{state} %0.3fms" % $cells_time
+    puts "Cells: %0.3fms" % $cells_time
   end
 end

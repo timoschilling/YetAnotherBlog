@@ -1,18 +1,30 @@
 class Post::Cell < ApplicationConcept
-  property :headline
-  property :user
-  property :created_at
-  property :comments
+  class Index < Post::Cell
+    def show
+      render view: :index
+    end
 
-  def preview
-    render view: :preview
+    def count
+      options[:count]
+    end
   end
 
-  def created_at
-    super.strftime("%d.%m.%Y")
-  end
+  class Show < Post::Cell
+    property :headline
+    property :user
+    property :created_at
+    property :comments
 
-  def first_comment
-    comments.first
+    def preview
+      render view: :preview
+    end
+
+    def created_at
+      super.strftime("%d.%m.%Y")
+    end
+
+    def first_comment
+      comments.first
+    end
   end
 end

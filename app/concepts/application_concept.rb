@@ -6,7 +6,7 @@ class ApplicationConcept < Cell::Concept
       res = super
     end
 
-    $cells_time += ms if self.class == Post
+    $cells_time += ms if self.is_a? Post::Cell::Index
 
     puts "#{self.class}##{state} %0.3fms" % ms
 
