@@ -1,0 +1,8 @@
+%p
+  %a{href: "#{post_path(model)}"}
+    %h3= headline
+  by
+  = concept("user/cell", user)
+  at #{created_at}
+%p
+  = concept("comment/cell", first_comment)

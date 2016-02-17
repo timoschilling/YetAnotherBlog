@@ -1,6 +1,0 @@
-%p
-  %a{href: "#{post_path(post)}"}
-    %h3= post.headline
-  by #{render post.user} at #{format_post_date(post.created_at)}
-%p
-  = render partial: "comments/comment", locals: { comment: post.comments.first }
