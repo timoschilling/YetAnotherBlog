@@ -1,4 +1,6 @@
 class Layout::Cell < ApplicationConcept
+  register :application
+
   def stylesheet_link_tag(*)
     %{<link rel="stylesheet" media="all" href="/assets/application.css" />}
   end
@@ -13,9 +15,5 @@ class Layout::Cell < ApplicationConcept
 
   def content
     model
-  end
-
-  def show
-    render view: :application
   end
 end

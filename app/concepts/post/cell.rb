@@ -1,8 +1,6 @@
 class Post::Cell < ApplicationConcept
   class Index < Post::Cell
-    def show
-      render view: :index
-    end
+    register :index
 
     def count
       options[:count]
@@ -10,14 +8,12 @@ class Post::Cell < ApplicationConcept
   end
 
   class Show < Post::Cell
+    register :preview
+    property :id
     property :headline
     property :user
     property :created_at
     property :comments
-
-    def preview
-      render view: :preview
-    end
 
     def created_at
       super.strftime("%d.%m.%Y")
@@ -25,6 +21,10 @@ class Post::Cell < ApplicationConcept
 
     def first_comment
       comments.first
+    end
+
+    def url
+      "/posts/#{id}"
     end
   end
 end
