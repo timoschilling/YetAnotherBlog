@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+
+<p>
+  Post count: <%= @posts.count %>
+</p>
+
+<% @posts.each do |post| %>
+  <%= render partial: "preview", locals: { post: post } %>
+<% end %>
