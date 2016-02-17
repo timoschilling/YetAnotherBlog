@@ -9,6 +9,6 @@ class PostsController < ApplicationController
     end
     puts "DB Queries: %0.2fms" % ms
 
-    render html: concept("post/cell/index", posts, count: post_count), layout: true
+    render html: concept("layout/cell", concept("post/cell/index", posts, count: post_count))
   end
 end
