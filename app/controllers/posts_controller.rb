@@ -7,8 +7,10 @@ class PostsController < ApplicationController
       post_count = query.count
       posts = query.to_a
     end
-    puts "DB Queries: %0.2fms" % ms
 
-    self.response_body = concept("layout/cell", concept("post/cell/index", posts, count: post_count).(:index)).(:application)
+    content = concept("post/cell/index", posts, count: post_count).(:index)
+    self.response_body = concept("layout/cell", content).(:application)
+
+    puts "DB Queries: %0.2fms" % ms
   end
 end
