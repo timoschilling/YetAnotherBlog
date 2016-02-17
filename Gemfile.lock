@@ -63,6 +63,8 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    declarative (0.0.5)
+      uber (>= 0.0.15)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -128,6 +130,9 @@ GEM
     rake (10.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
+    representable (3.0.0)
+      declarative (~> 0.0.5)
+      uber (~> 0.0.15)
     rspec-core (3.3.1)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.0)
@@ -194,6 +199,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.13, < 0.5)
   quiet_assets
   rails (= 4.2.5.1)
+  representable
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

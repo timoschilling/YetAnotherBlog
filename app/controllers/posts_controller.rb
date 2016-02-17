@@ -15,6 +15,24 @@ class PostsController < ApplicationController
   end
 
   def api
-    @posts = Post.all.includes(:user, comments: [:user]).limit(100)
+    posts = nil
+
+    ms_db = Benchmark.ms do
+      posts = Post.all.includes(:user, comments: [:user]).limit(100).to_a
+    end
+
+    json = nil
+
+    ms_json = Benchmark.ms do
+      representer = Post::Representer.new(Post::Representer::Wrapper.new(posts))
+      json = representer.to_json
+    end
+
+    # response.format 'application/json'
+    response.headers["Content-Type"] = "application/json"
+    self.response_body = json
+
+    puts "DB Queries: %0.2fms" % ms_db
+    puts "JSON: %0.2fms" % ms_json
   end
 end

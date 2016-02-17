@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'hamlit'
 gem 'cells', github: 'timoschilling/cells', branch: '4-2-preview'
 gem 'cells-hamlit'
+gem 'representable'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
