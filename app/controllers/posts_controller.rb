@@ -13,4 +13,8 @@ class PostsController < ApplicationController
 
     puts "DB Queries: %0.2fms" % ms
   end
+
+  def api
+    @posts = Post.all.includes(:user, comments: [:user]).limit(100)
+  end
 end
