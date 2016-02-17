@@ -9,6 +9,6 @@ class User::Cell < ApplicationConcept
   end
 
   def link
-    link_to email, name
+    %{<a href="mailto:#{email}">#{name}</a>}
   end
 end
