@@ -5,7 +5,7 @@
 </p>
 
 <% @posts.each do |post| %>
-  <% cache post do %>
+  <% Rails.cache.fetch "posts/#{post.id}/#{post.updated_at}" do %>
     <%= render partial: "preview", locals: { post: post } %>
   <% end %>
 <% end %>
