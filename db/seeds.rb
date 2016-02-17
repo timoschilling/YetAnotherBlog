@@ -12,7 +12,7 @@ posts = 1000.times.map do
 end
 
 comments = posts.map do |post|
-  rand(10).times do
+  10.times do
     Comment.create user: users.sample,
                    post: posts.sample,
                    content: 5.times.map { Faker::Hacker.say_something_smart }.join("\n"),
