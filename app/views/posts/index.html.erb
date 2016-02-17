@@ -5,5 +5,7 @@
 </p>
 
 <% @posts.each do |post| %>
-  <%= render partial: "preview", locals: { post: post } %>
+  <% cache post do %>
+    <%= render partial: "preview", locals: { post: post } %>
+  <% end %>
 <% end %>
